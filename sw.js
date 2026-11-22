@@ -20,9 +20,12 @@ const HMR_TUNNEL_PATHS = [
   '/channel/',
   '/api/',
   '/admin/',
+  '/webdav',
+  '/s/',
   '/notifications/',
   '/favicon.',
   '/apple-touch-icon',
+  '/splash-emblem.webp',
   '/ping'
 ];
 
