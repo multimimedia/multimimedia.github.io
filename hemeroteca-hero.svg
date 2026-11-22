@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 410" width="1200" height="410">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#05080F"/>
+      <stop offset="50%" stop-color="#070B14"/>
+      <stop offset="100%" stop-color="#0A101E"/>
+    </linearGradient>
+
+    <linearGradient id="cardBorder" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2979FF" stop-opacity="0.45"/>
+      <stop offset="35%" stop-color="#4DD0E1" stop-opacity="0.35"/>
+      <stop offset="70%" stop-color="#FFC400" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FF3D57" stop-opacity="0.45"/>
+    </linearGradient>
+
+    <radialGradient id="auraBlue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2979FF" stop-opacity="0.32"/>
+      <stop offset="70%" stop-color="#2979FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auraGold" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFC400" stop-opacity="0.24"/>
+      <stop offset="70%" stop-color="#FFC400" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auraGreen" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00E676" stop-opacity="0.22"/>
+      <stop offset="70%" stop-color="#00E676" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auraRed" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF3D57" stop-opacity="0.25"/>
+      <stop offset="70%" stop-color="#FF3D57" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="splashBarGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2979FF"/>
+      <stop offset="35%" stop-color="#4DD0E1"/>
+      <stop offset="70%" stop-color="#FFC400"/>
+      <stop offset="100%" stop-color="#FF3D57"/>
+    </linearGradient>
+
+    <linearGradient id="cometSweep" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2979FF" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#4DD0E1" stop-opacity="0.85"/>
+      <stop offset="85%" stop-color="#FFC400" stop-opacity="0.98"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"/>
+    </linearGradient>
+
+    <radialGradient id="cometTip" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#FFC400" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#FFC400" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="sheenGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <clipPath id="emblemClip">
+      <circle cx="600" cy="136" r="56"/>
+    </clipPath>
+
+    <filter id="glowSoft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+
+  <!-- Fondo Obsidian Splash Screen -->
+  <rect x="2" y="2" width="1196" height="406" rx="24" fill="url(#bgGrad)" stroke="url(#cardBorder)" stroke-width="1.5"/>
+
+  <!-- 4 Auras Ambientales estilo Splash / Login Web -->
+  <ellipse cx="445" cy="110" rx="220" ry="145" fill="url(#auraBlue)"/>
+  <ellipse cx="755" cy="110" rx="220" ry="145" fill="url(#auraGold)"/>
+  <ellipse cx="465" cy="240" rx="210" ry="135" fill="url(#auraGreen)"/>
+  <ellipse cx="735" cy="240" rx="210" ry="135" fill="url(#auraRed)"/>
+
+  <!-- Anillo de Cristal Estático Exterior -->
+  <circle cx="600" cy="136" r="76" fill="none" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="1.5"/>
+
+  <!-- Halo Orbital Luminoso + Cometa Giratorio -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0 600 136" to="360 600 136" dur="4.2s" repeatCount="indefinite"/>
+    <path d="M 546 190 A 76 76 0 1 1 676 136" fill="none" stroke="url(#cometSweep)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="676" cy="136" r="10" fill="url(#cometTip)" filter="url(#glowSoft)"/>
+    <circle cx="676" cy="136" r="3.5" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Emblema Circular 4 Cuadrantes de Hemeroteca -->
+  <circle cx="600" cy="136" r="58" fill="#0C121D" stroke="#FFFFFF" stroke-opacity="0.28" stroke-width="1.5"/>
+  <g clip-path="url(#emblemClip)">
+    <!-- Cuadrante Azul (Música) -->
+    <rect x="544" y="80" width="56" height="56" fill="#1D5CE0"/>
+    <!-- Cuadrante Dorado (Play / Vídeo) -->
+    <rect x="600" y="80" width="56" height="56" fill="#E6A100"/>
+    <!-- Cuadrante Verde (Cine / Claqueta) -->
+    <rect x="544" y="136" width="56" height="56" fill="#00A152"/>
+    <!-- Cuadrante Rojo (Cámara / Fotos) -->
+    <rect x="600" y="136" width="56" height="56" fill="#D5002F"/>
+
+    <!-- Separadores suaves -->
+    <line x1="600" y1="80" x2="600" y2="192" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="1.5"/>
+    <line x1="544" y1="136" x2="656" y2="136" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="1.5"/>
+
+    <!-- Icono Nota Musical (Arriba Izquierda) -->
+    <path d="M567 120 v-18 l18 -4 v16" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="563" cy="121" r="4.5" fill="#FFFFFF"/>
+    <circle cx="581" cy="117" r="4.5" fill="#FFFFFF"/>
+
+    <!-- Icono Play (Arriba Derecha) -->
+    <polygon points="618,98 640,111 618,124" fill="#FFFFFF"/>
+
+    <!-- Icono Cine/Claqueta (Abajo Izquierda) -->
+    <rect x="559" y="149" width="26" height="20" rx="3" fill="none" stroke="#FFFFFF" stroke-width="2.6"/>
+    <line x1="559" y1="156" x2="585" y2="156" stroke="#FFFFFF" stroke-width="2.4"/>
+
+    <!-- Icono Cámara (Abajo Derecha) -->
+    <rect x="615" y="149" width="26" height="19" rx="4" fill="none" stroke="#FFFFFF" stroke-width="2.6"/>
+    <circle cx="628" cy="158.5" r="5" fill="#0C121D" stroke="#FFFFFF" stroke-width="2.2"/>
+
+    <!-- Reflejo Especular Diagonal estilo Splash Screen -->
+    <polygon points="520,80 565,80 615,192 570,192" fill="url(#sheenGrad)">
+      <animateTransform attributeName="transform" type="translate" values="-60 0; 140 0; -60 0" dur="4.5s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+
+  <!-- Título HEMEROTECA + Subtítulo MEDIA HUB -->
+  <text x="600" y="242" text-anchor="middle" fill="#FFFFFF" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="900" letter-spacing="11">HEMEROTECA</text>
+  <text x="600" y="268" text-anchor="middle" fill="#4DD0E1" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="8">MEDIA HUB</text>
+
+  <!-- Barra de 4 Colores del Splash Screen -->
+  <rect x="430" y="286" width="340" height="6" rx="3" fill="#FFFFFF" fill-opacity="0.12"/>
+  <rect x="430" y="286" width="340" height="6" rx="3" fill="url(#splashBarGrad)"/>
+
+  <!-- Píldora de Identidad estilo Pantalla de Login Web -->
+  <rect x="275" y="314" width="650" height="58" rx="16" fill="#0C121D" fill-opacity="0.88" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="600" y="339" text-anchor="middle" fill="#E2E8F0" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="800" letter-spacing="0.6">
+    🔒 El Primer Servidor Multimedia y NAS P2P 100% Nativo en Android
+  </text>
+  <text x="600" y="359" text-anchor="middle" fill="#4DD0E1" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" letter-spacing="0.4">
+    Android TV · Móvil · Android Auto · Web · USB NTFS · WebDAV · Auto-Backup · Hi-Fi Bit-Perfect · WebRTC DTLS
+  </text>
+</svg>
