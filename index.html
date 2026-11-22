@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemeroteca — Tu Centro Multimedia y Servidor P2P Personal para Android TV, Móvil y Web</title>
+  <meta name="description" content="Convierte tu Android TV, TV Box o móvil en tu propio servidor multimedia privado con Escaparate Hub, lectura USB directa (NTFS/exFAT/FAT32), SMB/WebDAV y acceso remoto encriptado P2P HTTPS sin abrir puertos." />
+  <meta name="keywords" content="Hemeroteca, servidor multimedia Android TV, centro multimedia P2P, cine en casa, streaming personal, USB NTFS Android TV, WebRTC P2P" />
+  <meta name="robots" id="meta-robots" content="index, follow" />
+  <link rel="canonical" href="https://multimimedia.github.io/" />
+
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://multimimedia.github.io/" />
+  <meta property="og:title" content="Hemeroteca — Tu Centro Multimedia y Servidor P2P Privado" />
+  <meta property="og:description" content="Cine, Series, Música, Fotos RAW y Explorador Remoto con conexión P2P encriptada desde cualquier navegador o dispositivo Android." />
+
+  <!-- Datos estructurados SEO para Google (SoftwareApplication) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Hemeroteca",
+    "operatingSystem": "Android, Android TV, Web",
+    "applicationCategory": "MultimediaApplication",
+    "description": "Centro multimedia y servidor P2P privado con Escaparate Hub, soporte USB directo NTFS/exFAT/FAT32, unidades de red SMB/WebDAV y acceso remoto HTTPS encriptado."
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      background-color: #0B0E14;
+      color: #FFFFFF;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    .glass-card {
+      background: rgba(18, 24, 36, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+    #hmr-tunnel-frame {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      border: 0;
+      background: #0B0E14;
+      z-index: 50;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- VISTA 1: LANDING PAGE OFICIAL Y ESCAPARATE COMERCIAL DE LA APP (https://multimimedia.github.io/) -->
+  <div id="landing-root" class="min-h-screen flex flex-col">
+    <!-- Barra de navegación -->
+    <header class="sticky top-0 z-30 bg-black/85 backdrop-blur-md border-b border-white/10 px-4 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#E50914] to-[#B71C1C] flex items-center justify-center font-black text-lg shadow-lg">H</span>
+        <span class="text-[#E50914] font-black text-xl sm:text-2xl tracking-tight">HEMEROTECA</span>
+      </div>
+      <nav class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm font-semibold text-gray-300">
+        <a href="#funciones" class="hover:text-white transition">Funciones</a>
+        <a href="#spot" class="hover:text-white transition">Spot / Demo</a>
+        <a href="#conectar" class="hover:text-[#00E5FF] transition text-[#00E5FF]">Conectar a Servidor</a>
+        <a href="#descargar" class="px-3.5 py-1.5 rounded-full bg-[#E50914] hover:bg-red-700 text-white font-bold shadow transition">Descargar App</a>
+      </nav>
+    </header>
+
+    <!-- Hero Principal + Conector Rápido HMR-XXXX-YYYY -->
+    <section class="relative px-4 sm:px-8 pt-10 pb-14 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-7 space-y-5">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00E5FF]/10 border border-[#00E5FF]/30 text-[#00E5FF] text-xs font-extrabold tracking-wide">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>ANDROID TV • MÓVIL • TABLET • ACCESO REMOTO P2P HTTPS</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black leading-tight tracking-tight">
+          Tu propio <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-[#E50914]">Servidor Multimedia Privado</span> en casa y en cualquier lugar.
+        </h1>
+        <p class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl">
+          Disfruta de tus Películas, Series, Música, Fotos RAW y Archivos desde tu TV Box o móvil con interfaz <strong>Escaparate Hub</strong>. Conecta discos duros USB (NTFS, exFAT, FAT32 sin root), unidades de red SMB/WebDAV y accede desde cualquier navegador o móvil en 4G/5G con cifrado punto a punto sin abrir puertos en tu router.
+        </p>
+        <div class="flex flex-wrap items-center gap-3 pt-2" id="descargar">
+          <a href="#spot" class="px-6 py-3 rounded-xl bg-[#E50914] hover:bg-red-700 text-white font-extrabold text-sm shadow-xl flex items-center gap-2.5 transition">
+            <i class="fa-brands fa-android text-lg"></i>
+            <span>Descargar Hemeroteca para Android / TV</span>
+          </a>
+          <a href="#spot" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-bold text-sm flex items-center gap-2 transition">
+            <i class="fa-solid fa-circle-play text-[#00E5FF]"></i>
+            <span>Ver Spot Publicitario</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Tarjeta de Conexión Directa a Servidor por Código -->
+      <div class="lg:col-span-5" id="conectar">
+        <div class="glass-card rounded-2xl p-6 shadow-2xl border border-[#00E5FF]/30 space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-10 h-10 rounded-xl bg-[#00E5FF]/15 border border-[#00E5FF]/40 flex items-center justify-center text-[#00E5FF]">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <div>
+                <h2 class="text-base font-extrabold text-white">Acceso Web HTTPS a tu Servidor</h2>
+                <p class="text-xs text-gray-400">Conexión P2P encriptada DTLS directa a tu equipo</p>
+              </div>
+            </div>
+          </div>
+
+          <form id="connect-code-form" class="space-y-3">
+            <div>
+              <label class="block text-xs font-bold text-gray-300 mb-1.5">Código P2P de tu servidor</label>
+              <input
+                id="input-share-code"
+                type="text"
+                placeholder="HMR-XXXX-YYYY"
+                maxlength="13"
+                class="w-full px-4 py-3 rounded-xl bg-[#090C12] border border-gray-700 focus:border-[#00E5FF] outline-none font-mono font-extrabold text-base text-[#00E5FF] tracking-wider uppercase text-center"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="w-full py-3 rounded-xl bg-gradient-to-r from-[#0288D1] to-[#00ACC1] hover:brightness-110 text-white font-extrabold text-sm shadow-lg flex items-center justify-center gap-2 cursor-pointer transition"
+            >
+              <i class="fa-solid fa-bolt"></i>
+              <span>Conectar a mi Servidor</span>
+            </button>
+          </form>
+          <p class="text-[11px] text-gray-400 leading-relaxed">
+            💡 También puedes entrar directamente escribiendo <code class="text-[#00E5FF] bg-black/50 px-1.5 py-0.5 rounded">https://multimimedia.github.io/HMR-XXXX-YYYY</code> en la barra de tu navegador.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Spot Publicitario / Vídeo Interactivo -->
+    <section id="spot" class="px-4 sm:px-8 py-10 max-w-6xl mx-auto w-full">
+      <div class="glass-card rounded-2xl p-6 sm:p-8 border border-white/10 shadow-2xl space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="text-xs font-extrabold text-[#00E5FF] uppercase tracking-wider">Presentación Oficial</span>
+            <h2 class="text-xl sm:text-2xl font-black text-white">Descubre todo lo que hace Hemeroteca</h2>
+          </div>
+          <span class="text-xs text-gray-400">Compatible con Móviles, Tablets, Smart TV y TV Box</span>
+        </div>
+        <!-- Reproductor listo para tu vídeo spot.mp4 en el repositorio -->
+        <div class="relative aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-[#121826] via-[#0B0E14] to-[#1A0D14] border border-white/10 flex flex-col items-center justify-center text-center p-6">
+          <video id="promo-video" class="w-full h-full object-cover hidden" controls preload="metadata" poster="">
+            <source src="/spot.mp4" type="video/mp4" />
+          </video>
+          <div id="promo-placeholder" class="space-y-3 max-w-lg">
+            <div class="w-16 h-16 rounded-full bg-[#E50914]/20 border border-[#E50914] flex items-center justify-center mx-auto text-[#E50914] text-2xl shadow-xl">
+              <i class="fa-solid fa-film"></i>
+            </div>
+            <h3 class="text-lg sm:text-xl font-extrabold text-white">Escaparate Hub • Streaming P2P • Explorador Remoto</h3>
+            <p class="text-xs sm:text-sm text-gray-400">
+              Para mostrar aquí tu spot publicitario en vídeo, sube tu archivo <code class="text-white bg-white/10 px-1.5 py-0.5 rounded">spot.mp4</code> a este repositorio y se reproducirá automáticamente en este reproductor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Características Principales -->
+    <section id="funciones" class="px-4 sm:px-8 py-10 max-w-7xl mx-auto w-full">
+      <h2 class="text-2xl sm:text-3xl font-black text-center mb-8">Potencia de Servidor, Sencillez de App</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="glass-card rounded-2xl p-5 space-y-2">
+          <div class="text-2xl">🎬</div>
+          <h3 class="font-extrabold text-base text-white">Escaparate Hub Inteligente</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">Organiza Cine, Series, Música, Fotos y Canales con carátulas, sinopsis, progreso de «Seguir Viendo» sincronizado y reproducción directa o HLS.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-5 space-y-2">
+          <div class="text-2xl">🔌</div>
+          <h3 class="font-extrabold text-base text-white">USB Directo NTFS / exFAT / FAT32</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">Driver USB propio integrado a nivel de bloque para leer y gestionar discos duros externos en TV Box y móviles sin necesidad de root.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-5 space-y-2">
+          <div class="text-2xl">🖥️</div>
+          <h3 class="font-extrabold text-base text-white">Unidades de Red SMB y WebDAV</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">Conecta carpetas compartidas de Windows, NAS Synology/QNAP, routers o nubes Nextcloud/OwnCloud como bibliotecas locales.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-5 space-y-2">
+          <div class="text-2xl">🔒</div>
+          <h3 class="font-extrabold text-base text-white">Conexión P2P Encriptada DTLS</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">Accede desde fuera de casa por 4G/5G mediante código único HMR-XXXX-YYYY. Tus vídeos viajan directo entre tu servidor y tu pantalla sin pasar por terceros.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-5 space-y-2">
+          <div class="text-2xl">👥</div>
+          <h3 class="font-extrabold text-base text-white">Control Granular de Usuarios</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">Elige exactamente qué bibliotecas, subcarpetas o archivos puede ver o gestionar cada familiar o amigo desde la app.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-5 space-y-2">
+          <div class="text-2xl">📁</div>
+          <h3 class="font-extrabold text-base text-white">Explorador de Archivos Remoto</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">Sube, descarga, copia, mueve y organiza archivos y carpetas completas entre tus dispositivos desde la app o desde el navegador web.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-auto border-t border-white/10 py-6 px-4 text-center text-xs text-gray-500">
+      © Hemeroteca — Centro Multimedia &amp; Servidor P2P Personal. Conexión punto a punto cifrada extremo a extremo.
+    </footer>
+  </div>
+
+  <!-- VISTA 2: PANTALLA DE CONEXIÓN DEL TÚNEL WEBRTC P2P (Cuando la URL incluye /HMR-XXXX-YYYY) -->
+  <div id="bridge-status-root" class="hidden min-h-screen flex items-center justify-center p-4">
+    <div class="glass-card rounded-2xl p-6 sm:p-8 max-w-md w-full text-center space-y-4 border border-[#00E5FF]/30 shadow-2xl">
+      <div class="w-14 h-14 rounded-2xl bg-[#00E5FF]/15 border border-[#00E5FF]/40 flex items-center justify-center mx-auto text-[#00E5FF] text-2xl">
+        <i id="bridge-spinner" class="fa-solid fa-circle-notch fa-spin"></i>
+      </div>
+      <div class="space-y-1">
+        <span id="bridge-code-badge" class="inline-block px-3 py-0.5 rounded-full bg-white/10 text-[#00E5FF] font-mono font-extrabold text-xs">HMR-XXXX-YYYY</span>
+        <h2 id="bridge-title" class="text-lg font-extrabold text-white pt-1">Conectando por túnel P2P HTTPS...</h2>
+        <p id="bridge-subtitle" class="text-xs text-gray-400">Negociando canal directo encriptado DTLS con tu servidor Hemeroteca.</p>
+      </div>
+      <div id="bridge-error-actions" class="hidden pt-2 space-y-2">
+        <button onclick="window.location.reload()" class="w-full py-2.5 rounded-xl bg-[#0288D1] hover:bg-[#0277BD] text-white font-bold text-xs cursor-pointer transition">
+          🔄 Reintentar conexión
+        </button>
+        <a href="/" class="block w-full py-2 rounded-xl bg-white/10 hover:bg-white/15 text-gray-300 font-semibold text-xs no-underline transition">
+          ← Volver a la página principal
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- IFRAME DE PANTALLA COMPLETA DONDE SE RENDERIZA LA INTERFAZ WEB DEL SERVIDOR HEMEROTECA -->
+  <iframe id="hmr-tunnel-frame" title="Hemeroteca Server Web UI"></iframe>
+
+  <script>
+  (function() {
+    const SUPABASE_URL = 'https://meauzaxipgpdriluddbh.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_2fr0_V6Abir0ypbuc6ffMg_WrMM2yzT';
+    const SHARE_CODE_REGEX = /^HMR-[A-Z0-9]{4}-[A-Z0-9]{4}$/i;
+
+    // protocolo binario WebRtcMuxCodec.kt (9 bytes Big-Endian: [type:1B][streamId:4B][len:4B])
+    const MSG_REQ_META = 1;
+    const MSG_REQ_BODY = 2;
+    const MSG_REQ_END = 3;
+    const MSG_RESP_META = 4;
+    const MSG_RESP_BODY = 5;
+    const MSG_RESP_END = 6;
+    const MSG_STREAM_ABORT = 7;
+    const MSG_KEEPALIVE = 8;
+    const MAX_CHUNK_BYTES = 32 * 1024;
+
+    function extractShareCodeFromLocation() {
+      const params = new URLSearchParams(window.location.search);
+      const fromQuery = (params.get('code') || '').trim().toUpperCase();
+      if (SHARE_CODE_REGEX.test(fromQuery)) return fromQuery;
+      const segments = window.location.pathname.split('/').map(s => s.trim()).filter(Boolean);
+      for (const seg of segments) {
+        if (SHARE_CODE_REGEX.test(seg)) return seg.toUpperCase();
+      }
+      return null;
+    }
+
+    // Formulario de la Landing Page
+    const connectForm = document.getElementById('connect-code-form');
+    if (connectForm) {
+      connectForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const raw = (document.getElementById('input-share-code').value || '').trim().toUpperCase();
+        if (!SHARE_CODE_REGEX.test(raw)) {
+          alert('Introduce un código válido con formato HMR-XXXX-YYYY');
+          return;
+        }
+        window.location.href = '/' + encodeURIComponent(raw);
+      });
+    }
+
+    // Comprobar si existe spot.mp4 para mostrar el reproductor automáticamente
+    const promoVideo = document.getElementById('promo-video');
+    const promoPlaceholder = document.getElementById('promo-placeholder');
+    if (promoVideo && promoPlaceholder) {
+      promoVideo.addEventListener('loadedmetadata', function() {
+        promoPlaceholder.classList.add('hidden');
+        promoVideo.classList.remove('hidden');
+      });
+    }
+
+    const activeShareCode = extractShareCodeFromLocation();
+    if (!activeShareCode) {
+      // Modo 1: Página pública de producto (indexable por Google)
+      return;
+    }
+
+    // Modo 2: Conexión privada a servidor HMR-XXXX-YYYY (NO indexable por buscadores)
+    const robotsMeta = document.getElementById('meta-robots');
+    if (robotsMeta) robotsMeta.setAttribute('content', 'noindex, nofollow');
+    document.title = 'Hemeroteca — Conectando a ' + activeShareCode;
+    document.getElementById('landing-root').classList.add('hidden');
+    document.getElementById('bridge-status-root').classList.remove('hidden');
+    document.getElementById('bridge-code-badge').textContent = activeShareCode;
+
+    function setBridgeUiState(title, subtitle, isError) {
+      document.getElementById('bridge-title').textContent = title;
+      document.getElementById('bridge-subtitle').textContent = subtitle;
+      const spinner = document.getElementById('bridge-spinner');
+      const actions = document.getElementById('bridge-error-actions');
+      if (isError) {
+        spinner.className = 'fa-solid fa-triangle-exclamation text-amber-400';
+        actions.classList.remove('hidden');
+      } else {
+        spinner.className = 'fa-solid fa-circle-notch fa-spin';
+        actions.classList.add('hidden');
+      }
+    }
+
+    async function callSupabaseRpc(fnName, payloadObj) {
+      const res = await fetch(SUPABASE_URL + '/rest/v1/rpc/' + fnName, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_KEY,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payloadObj)
+      });
+      if (!res.ok) {
+        throw new Error('HTTP ' + res.status + ' en ' + fnName);
+      }
+      return await res.json();
+    }
+
+    function encodeMuxFrame(type, streamId, payloadBytes) {
+      const payload = payloadBytes || new Uint8Array(0);
+      const out = new ArrayBuffer(9 + payload.byteLength);
+      const view = new DataView(out);
+      view.setUint8(0, type);
+      view.setInt32(1, streamId, false); // Big-Endian
+      view.setInt32(5, payload.byteLength, false); // Big-Endian
+      if (payload.byteLength > 0) {
+        new Uint8Array(out, 9).set(payload);
+      }
+      return out;
+    }
+
+    function decodeMuxFrame(arrayBuffer) {
+      if (!arrayBuffer || arrayBuffer.byteLength < 9) return null;
+      const view = new DataView(arrayBuffer);
+      const type = view.getUint8(0);
+      const streamId = view.getInt32(1, false);
+      const len = view.getInt32(5, false);
+      if (len < 0 || len !== arrayBuffer.byteLength - 9) return null;
+      const payload = new Uint8Array(arrayBuffer, 9, len);
+      return { type, streamId, payload };
+    }
+
+    // Estado del puente HTTP sobre DataChannel
+    let activeDataChannel = null;
+    let nextStreamId = 1;
+    const pendingStreams = new Map();
+    const virtualCookieJar = new Map();
+
+    function updateCookiesFromResponseHeaders(headers) {
+      (headers || []).forEach(h => {
+        if ((h.name || '').toLowerCase() === 'set-cookie' && h.value) {
+          const firstPart = h.value.split(';')[0] || '';
+          const eqIdx = firstPart.indexOf('=');
+          if (eqIdx > 0) {
+            const cName = firstPart.substring(0, eqIdx).trim();
+            const cVal = firstPart.substring(eqIdx + 1).trim();
+            if (!cVal || /max-age=0/i.test(h.value)) {
+              virtualCookieJar.delete(cName);
+            } else {
+              virtualCookieJar.set(cName, cVal);
+            }
+          }
+        }
+      });
+    }
+
+    function buildCookieHeaderValue() {
+      if (virtualCookieJar.size === 0) return '';
+      const parts = [];
+      virtualCookieJar.forEach((v, k) => parts.push(k + '=' + v));
+      return parts.join('; ');
+    }
+
+    function executeSingleDataChannelRequest(method, path, headers, bodyBytes) {
+      return new Promise((resolve) => {
+        if (!activeDataChannel || activeDataChannel.readyState !== 'open') {
+          resolve({ error: 'Canal WebRTC cerrado' });
+          return;
+        }
+        const streamId = nextStreamId++;
+        const reqHeaders = [];
+        (headers || []).forEach(h => {
+          const lower = (h.name || '').toLowerCase();
+          if (lower !== 'cookie' && lower !== 'host' && lower !== 'content-length') {
+            reqHeaders.push({ name: h.name, value: h.value });
+          }
+        });
+        const cookieStr = buildCookieHeaderValue();
+        if (cookieStr) {
+          reqHeaders.push({ name: 'Cookie', value: cookieStr });
+        }
+        if (bodyBytes && bodyBytes.byteLength > 0) {
+          reqHeaders.push({ name: 'Content-Length', value: String(bodyBytes.byteLength) });
+        }
+
+        const chunks = [];
+        let respMeta = null;
+        pendingStreams.set(streamId, {
+          onMeta(meta) {
+            updateCookiesFromResponseHeaders(meta.headers);
+            respMeta = meta;
+          },
+          onChunk(chunk) {
+            chunks.push(new Uint8Array(chunk));
+          },
+          onEnd() {
+            pendingStreams.delete(streamId);
+            resolve({ meta: respMeta || { statusCode: 200, reasonPhrase: 'OK', headers: [] }, chunks });
+          }
+        });
+
+        const metaJsonBytes = new TextEncoder().encode(JSON.stringify({
+          method: method,
+          path: path,
+          headers: reqHeaders
+        }));
+        activeDataChannel.send(encodeMuxFrame(MSG_REQ_META, streamId, metaJsonBytes));
+
+        if (bodyBytes && bodyBytes.byteLength > 0) {
+          let offset = 0;
+          while (offset < bodyBytes.byteLength) {
+            const end = Math.min(offset + MAX_CHUNK_BYTES, bodyBytes.byteLength);
+            activeDataChannel.send(encodeMuxFrame(MSG_REQ_BODY, streamId, bodyBytes.subarray(offset, end)));
+            offset = end;
+          }
+        }
+        activeDataChannel.send(encodeMuxFrame(MSG_REQ_END, streamId, new Uint8Array(0)));
+      });
+    }
+
+    // Escuchar peticiones interceptadas por sw.js
+    navigator.serviceWorker.addEventListener('message', async (event) => {
+      const msg = event.data || {};
+      if (msg.type !== 'HMR_SW_FETCH') return;
+      const replyPort = event.ports && event.ports[0];
+      if (!replyPort) return;
+
+      if (!activeDataChannel || activeDataChannel.readyState !== 'open') {
+        replyPort.postMessage({ type: 'ERROR', message: 'Túnel WebRTC no conectado' });
+        return;
+      }
+
+      let curMethod = msg.method || 'GET';
+      let curPath = msg.path || '/';
+      let curHeaders = msg.headers || [];
+      let curBody = msg.bodyBuffer ? new Uint8Array(msg.bodyBuffer) : null;
+
+      // Seguir redirecciones internas (ej. POST /login -> 302 Location: /) conservando la cookie de sesión en virtualCookieJar
+      for (let hop = 0; hop < 4; hop++) {
+        const result = await executeSingleDataChannelRequest(curMethod, curPath, curHeaders, curBody);
+        if (result.error) {
+          replyPort.postMessage({ type: 'ERROR', message: result.error });
+          return;
+        }
+        const status = result.meta.statusCode || 200;
+        const locHeader = (result.meta.headers || []).find(h => (h.name || '').toLowerCase() === 'location');
+        if ([301, 302, 303, 307, 308].includes(status) && locHeader && locHeader.value) {
+          let nextLoc = locHeader.value.trim();
+          if (nextLoc.startsWith('http://') || nextLoc.startsWith('https://')) {
+            try {
+              const u = new URL(nextLoc);
+              nextLoc = u.pathname + u.search;
+            } catch (_e) {}
+          }
+          if (!nextLoc.startsWith('/')) nextLoc = '/' + nextLoc;
+          curMethod = 'GET';
+          curPath = nextLoc;
+          curBody = null;
+          continue;
+        }
+
+        // Enviar respuesta final en streaming a sw.js
+        replyPort.postMessage({
+          type: 'META',
+          statusCode: status,
+          reasonPhrase: result.meta.reasonPhrase || 'OK',
+          headers: result.meta.headers || []
+        });
+        for (const chunk of result.chunks) {
+          const copyBuf = chunk.buffer.slice(chunk.byteOffset, chunk.byteOffset + chunk.byteLength);
+          replyPort.postMessage({ type: 'CHUNK', chunk: copyBuf }, [copyBuf]);
+        }
+        replyPort.postMessage({ type: 'END' });
+        return;
+      }
+      replyPort.postMessage({ type: 'ERROR', message: 'Demasiadas redirecciones' });
+    });
+
+    async function startWebRtcBridge() {
+      try {
+        if (!('serviceWorker' in navigator)) {
+          setBridgeUiState('Navegador no compatible', 'Tu navegador no soporta Service Workers sobre HTTPS.', true);
+          return;
+        }
+        setBridgeUiState('Preparando motor HTTPS P2P...', 'Activando Service Worker local en tu navegador.', false);
+        const reg = await navigator.serviceWorker.register('/sw.js', { scope: '/' });
+        await navigator.serviceWorker.ready;
+
+        const randPart = (self.crypto && self.crypto.randomUUID)
+          ? self.crypto.randomUUID().replace(/-/g, '')
+          : (Math.random().toString(36).slice(2) + Date.now().toString(36));
+        const sessionKey = 'web_' + randPart;
+
+        setBridgeUiState('Buscando servidor ' + activeShareCode + '...', 'Consultando disponibilidad del servidor en la nube.', false);
+        const createRes = await callSupabaseRpc('web_bridge_create_session', {
+          p_session_key: sessionKey,
+          p_share_code: activeShareCode,
+          p_client_label: navigator.userAgent.slice(0, 48)
+        });
+
+        if (!createRes || !createRes.ok) {
+          const errCode = (createRes && createRes.error) || 'unknown';
+          if (errCode === 'server_not_found') {
+            setBridgeUiState('Servidor no encontrado', 'El código ' + activeShareCode + ' no está registrado o aún no se ha activado en la TV Box.', true);
+          } else {
+            setBridgeUiState('No se pudo iniciar sesión P2P', 'Detalle: ' + errCode, true);
+          }
+          return;
+        }
+
+        setBridgeUiState(
+          'Conectando con ' + (createRes.server_name || activeShareCode) + '...',
+          'Estableciendo túnel directo WebRTC encriptado (DTLS)...',
+          false
+        );
+
+        const pc = new RTCPeerConnection({
+          iceServers: [
+            { urls: ['stun:stun.l.google.com:19302', 'stun:stun1.l.google.com:19302'] }
+          ]
+        });
+
+        const dc = pc.createDataChannel('hemeroteca-http', { ordered: true });
+        dc.binaryType = 'arraybuffer';
+
+        dc.onmessage = (ev) => {
+          const frame = decodeMuxFrame(ev.data);
+          if (!frame) return;
+          const handler = pendingStreams.get(frame.streamId);
+          if (!handler) return;
+          if (frame.type === MSG_RESP_META) {
+            try {
+              const metaObj = JSON.parse(new TextDecoder().decode(frame.payload));
+              handler.onMeta(metaObj);
+            } catch (_e) {}
+          } else if (frame.type === MSG_RESP_BODY) {
+            handler.onChunk(frame.payload);
+          } else if (frame.type === MSG_RESP_END) {
+            handler.onEnd();
+          }
+        };
+
+        pc.onicecandidate = (ev) => {
+          if (ev.candidate) {
+            const payload = JSON.stringify({
+              sdpMid: ev.candidate.sdpMid || '0',
+              sdpMLineIndex: ev.candidate.sdpMLineIndex || 0,
+              candidate: ev.candidate.candidate
+            });
+            callSupabaseRpc('web_bridge_send_signal', {
+              p_session_key: sessionKey,
+              p_signal_type: 'ice',
+              p_payload: payload
+            }).catch(() => {});
+          }
+        };
+
+        const offer = await pc.createOffer();
+        await pc.setLocalDescription(offer);
+
+        await callSupabaseRpc('web_bridge_send_signal', {
+          p_session_key: sessionKey,
+          p_signal_type: 'offer',
+          p_payload: JSON.stringify({ type: 'offer', sdp: offer.sdp })
+        });
+
+        let lastSignalId = 0;
+        let answerApplied = false;
+        const pendingIce = [];
+        let tunnelOpened = false;
+
+        dc.onopen = () => {
+          tunnelOpened = true;
+          activeDataChannel = dc;
+          setInterval(() => {
+            if (dc.readyState === 'open') {
+              try { dc.send(encodeMuxFrame(MSG_KEEPALIVE, 0, new Uint8Array(0))); } catch (_e) {}
+            }
+          }, 15000);
+
+          document.getElementById('bridge-status-root').classList.add('hidden');
+          const iframe = document.getElementById('hmr-tunnel-frame');
+          iframe.style.display = 'block';
+          iframe.src = '/__hmr_entry?__hmr_tunnel=1';
+        };
+
+        dc.onclose = () => {
+          if (tunnelOpened) {
+            document.getElementById('hmr-tunnel-frame').style.display = 'none';
+            document.getElementById('bridge-status-root').classList.remove('hidden');
+            setBridgeUiState('Conexión finalizada', 'El túnel P2P con el servidor se ha cerrado.', true);
+          }
+        };
+
+        const pollStart = Date.now();
+        while (!tunnelOpened && (Date.now() - pollStart) < 28000) {
+          await new Promise(r => setTimeout(r, 400));
+          if (tunnelOpened) break;
+          const pollRes = await callSupabaseRpc('web_bridge_poll_signals', {
+            p_session_key: sessionKey,
+            p_after_id: lastSignalId
+          });
+          if (!pollRes || !pollRes.ok) continue;
+          const signals = pollRes.signals || [];
+          for (const sig of signals) {
+            if (sig.id > lastSignalId) lastSignalId = sig.id;
+            if (sig.signal_type === 'answer' && !answerApplied) {
+              const ansObj = JSON.parse(sig.payload);
+              await pc.setRemoteDescription(new RTCSessionDescription({ type: 'answer', sdp: ansObj.sdp }));
+              answerApplied = true;
+              while (pendingIce.length > 0) {
+                const c = pendingIce.shift();
+                try { await pc.addIceCandidate(c); } catch (_e) {}
+              }
+            } else if (sig.signal_type === 'ice') {
+              const iceObj = JSON.parse(sig.payload);
+              const cand = new RTCIceCandidate({
+                sdpMid: iceObj.sdpMid,
+                sdpMLineIndex: iceObj.sdpMLineIndex,
+                candidate: iceObj.candidate
+              });
+              if (answerApplied) {
+                try { await pc.addIceCandidate(cand); } catch (_e) {}
+              } else {
+                pendingIce.push(cand);
+              }
+            }
+          }
+        }
+
+        if (!tunnelOpened) {
+          setBridgeUiState(
+            'El servidor no respondió a tiempo',
+            'Asegúrate de que tu TV Box o servidor Hemeroteca esté encendido y con la emisión activa.',
+            true
+          );
+        }
+      } catch (err) {
+        setBridgeUiState('Error de conexión P2P', (err && err.message) || 'Error desconocido', true);
+      }
+    }
+
+    startWebRtcBridge();
+  })();
+  </script>
+</body>
+</html>

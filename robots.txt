@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /$
+Disallow: /HMR-
+Disallow: /hmr-
+Sitemap: https://multimimedia.github.io/sitemap.xml
