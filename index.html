@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hemeroteca — Tu Centro Multimedia y Servidor P2P Personal para Android TV, Móvil y Web</title>
-  <meta name="description" content="Convierte tu Android TV, TV Box o móvil en tu propio servidor multimedia privado con Escaparate Hub, lectura USB directa (NTFS/exFAT/FAT32), SMB/WebDAV y acceso remoto encriptado P2P HTTPS sin abrir puertos." />
-  <meta name="keywords" content="Hemeroteca, servidor multimedia Android TV, centro multimedia P2P, cine en casa, streaming personal, USB NTFS Android TV, WebRTC P2P" />
+  <title>Hemeroteca — El Primer Servidor Multimedia P2P 100% Nativo para Android TV, Móvil, Android Auto y Web</title>
+  <meta name="description" content="Convierte tu Android TV, TV Box o móvil en un servidor multimedia P2P 100% nativo. Escaparate Hub, driver USB NTFS/exFAT/FAT32 sin root, SMB/WebDAV, Audio Hi-Fi Bit-Perfect + DAC USB + Ecualizador 10 bandas + Android Auto, Canales de YouTube, transcodificación por hardware y cifrado punto a punto DTLS." />
+  <meta name="keywords" content="Hemeroteca, servidor multimedia nativo Android, Android TV, USB NTFS Android sin root, Android Auto música Hi-Fi, Bit-Perfect DAC USB, WebRTC P2P, transcodificación hardware, cine en casa, explorador de archivos remoto" />
   <meta name="robots" id="meta-robots" content="index, follow" />
   <link rel="canonical" href="https://multimimedia.github.io/" />
 
-  <!-- Open Graph / Redes Sociales -->
+  <!-- Open Graph / Redes Sociales / WhatsApp -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://multimimedia.github.io/" />
-  <meta property="og:title" content="Hemeroteca — Tu Centro Multimedia y Servidor P2P Privado" />
-  <meta property="og:description" content="Cine, Series, Música, Fotos RAW y Explorador Remoto con conexión P2P encriptada desde cualquier navegador o dispositivo Android." />
+  <meta property="og:title" content="Hemeroteca — El Primer Servidor Multimedia P2P 100% Nativo en Android" />
+  <meta property="og:description" content="Cine, Series, Música Hi-Fi Bit-Perfect, Android Auto, Canales de YouTube, Fotos RAW, USB NTFS completo y Explorador Bidireccional con cifrado punto a punto." />
 
   <!-- Datos estructurados SEO para Google (SoftwareApplication) -->
   <script type="application/ld+json">
@@ -21,9 +21,16 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Hemeroteca",
-    "operatingSystem": "Android, Android TV, Web",
+    "operatingSystem": "Android, Android TV, Android Auto, Web",
     "applicationCategory": "MultimediaApplication",
-    "description": "Centro multimedia y servidor P2P privado con Escaparate Hub, soporte USB directo NTFS/exFAT/FAT32, unidades de red SMB/WebDAV y acceso remoto HTTPS encriptado."
+    "description": "El primer servidor y centro multimedia P2P 100% nativo para Android y Android TV con driver USB NTFS/exFAT/FAT32 propio, unidades de red SMB/WebDAV, reproductor Hi-Fi Bit-Perfect con DAC USB y ecualizador de 10 bandas, Android Auto, transcodificación por hardware y cifrado punto a punto.",
+    "offers": [
+      { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "name": "Reproductor Local y Cliente + Prueba Servidor 14 Días Gratis" },
+      { "@type": "Offer", "price": "2.99", "priceCurrency": "EUR", "name": "Plan Estándar Mensual" },
+      { "@type": "Offer", "price": "4.99", "priceCurrency": "EUR", "name": "Plan Pro Familiar Mensual" },
+      { "@type": "Offer", "price": "29.99", "priceCurrency": "EUR", "name": "Plan Pro Anual (-50%)" },
+      { "@type": "Offer", "price": "39.99", "priceCurrency": "EUR", "name": "Licencia Lifetime Pago Único" }
+    ]
   }
   </script>
 
@@ -39,12 +46,31 @@
       color: #FFFFFF;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
     .glass-card {
-      background: rgba(18, 24, 36, 0.85);
+      background: rgba(18, 24, 36, 0.86);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.09);
     }
+    .spot-gradient-bg {
+      background: radial-gradient(circle at 20% 20%, rgba(0, 229, 255, 0.18), transparent 45%),
+                  radial-gradient(circle at 80% 80%, rgba(229, 9, 20, 0.22), transparent 50%),
+                  linear-gradient(135deg, #090D14 0%, #111827 50%, #0B0E14 100%);
+    }
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.06); opacity: 1; }
+    }
+    .animate-pulse-glow {
+      animation: pulseGlow 3.2s infinite ease-in-out;
+    }
+    @keyframes eqBar1 { 0%,100%{height:22%} 50%{height:92%} }
+    @keyframes eqBar2 { 0%,100%{height:75%} 40%{height:20%} 80%{height:96%} }
+    @keyframes eqBar3 { 0%,100%{height:40%} 30%{height:95%} 70%{height:28%} }
+    .eq-bar-1 { animation: eqBar1 0.9s infinite ease-in-out; }
+    .eq-bar-2 { animation: eqBar2 0.75s infinite ease-in-out; }
+    .eq-bar-3 { animation: eqBar3 1.05s infinite ease-in-out; }
     #hmr-tunnel-frame {
       position: fixed;
       inset: 0;
@@ -59,71 +85,97 @@
 </head>
 <body>
 
-  <!-- VISTA 1: LANDING PAGE OFICIAL Y ESCAPARATE COMERCIAL DE LA APP (https://multimimedia.github.io/) -->
+  <!-- =========================================================================
+       VISTA 1: WEB OFICIAL DE HEMEROTECA (https://multimimedia.github.io/)
+       ========================================================================= -->
   <div id="landing-root" class="min-h-screen flex flex-col">
-    <!-- Barra de navegación -->
-    <header class="sticky top-0 z-30 bg-black/85 backdrop-blur-md border-b border-white/10 px-4 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3">
-      <div class="flex items-center gap-3">
-        <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#E50914] to-[#B71C1C] flex items-center justify-center font-black text-lg shadow-lg">H</span>
-        <span class="text-[#E50914] font-black text-xl sm:text-2xl tracking-tight">HEMEROTECA</span>
-      </div>
-      <nav class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm font-semibold text-gray-300">
-        <a href="#funciones" class="hover:text-white transition">Funciones</a>
-        <a href="#spot" class="hover:text-white transition">Spot / Demo</a>
-        <a href="#conectar" class="hover:text-[#00E5FF] transition text-[#00E5FF]">Conectar a Servidor</a>
-        <a href="#descargar" class="px-3.5 py-1.5 rounded-full bg-[#E50914] hover:bg-red-700 text-white font-bold shadow transition">Descargar App</a>
+
+    <!-- Barra Superior -->
+    <header class="sticky top-0 z-30 bg-black/90 backdrop-blur-md border-b border-white/10 px-4 sm:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-2.5 no-underline">
+        <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#E50914] to-[#B71C1C] flex items-center justify-center font-black text-lg text-white shadow-lg">H</span>
+        <div>
+          <span class="text-[#E50914] font-black text-lg sm:text-2xl tracking-tight block leading-none">HEMEROTECA</span>
+          <span class="text-[10px] text-gray-400 font-semibold tracking-wider uppercase">Servidor &amp; Centro Multimedia Nativo</span>
+        </div>
+      </a>
+      <nav class="flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-sm font-semibold text-gray-300">
+        <a href="#spot" class="hover:text-white transition">🎬 Spot Oficial</a>
+        <a href="#funciones" class="hover:text-white transition">⚡ Funciones</a>
+        <a href="#hifi" class="hover:text-white transition">🎵 Audio Hi-Fi &amp; Auto</a>
+        <a href="#precios" class="hover:text-white transition">💎 Planes</a>
+        <a href="#conectar" class="hover:text-[#00E5FF] transition text-[#00E5FF] font-bold">🔒 Conectar Servidor</a>
+        <a href="#descargar" class="px-3.5 py-1.5 rounded-full bg-[#E50914] hover:bg-red-700 text-white font-extrabold shadow transition">📲 Descargar App</a>
       </nav>
     </header>
 
-    <!-- Hero Principal + Conector Rápido HMR-XXXX-YYYY -->
-    <section class="relative px-4 sm:px-8 pt-10 pb-14 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    <!-- HERO PRINCIPAL + CONECTOR HTTPS P2P -->
+    <section class="relative px-4 sm:px-8 pt-8 pb-12 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       <div class="lg:col-span-7 space-y-5">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00E5FF]/10 border border-[#00E5FF]/30 text-[#00E5FF] text-xs font-extrabold tracking-wide">
-          <i class="fa-solid fa-shield-halved"></i>
-          <span>ANDROID TV • MÓVIL • TABLET • ACCESO REMOTO P2P HTTPS</span>
+        <div class="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full bg-[#00E5FF]/10 border border-[#00E5FF]/30 text-[#00E5FF] text-[11px] font-extrabold tracking-wide">
+          <i class="fa-solid fa-microchip"></i>
+          <span>EL PRIMER SERVIDOR MULTIMEDIA P2P 100% NATIVO EN ANDROID</span>
         </div>
+
         <h1 class="text-3xl sm:text-5xl font-black leading-tight tracking-tight">
-          Tu propio <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-[#E50914]">Servidor Multimedia Privado</span> en casa y en cualquier lugar.
+          Tu Cine, Música Hi-Fi, Canales y Archivos <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] via-[#4DD0E1] to-[#E50914]">Sin Límites y Bajo Tu Control</span>.
         </h1>
+
         <p class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl">
-          Disfruta de tus Películas, Series, Música, Fotos RAW y Archivos desde tu TV Box o móvil con interfaz <strong>Escaparate Hub</strong>. Conecta discos duros USB (NTFS, exFAT, FAT32 sin root), unidades de red SMB/WebDAV y accede desde cualquier navegador o móvil en 4G/5G con cifrado punto a punto sin abrir puertos en tu router.
+          Convierte cualquier <strong>Android TV, TV Box, Móvil o Tablet</strong> en un servidor multimedia privado de alto rendimiento con <strong>Escaparate Hub</strong>, lectura directa de discos duros <strong>USB NTFS / exFAT / FAT32</strong>, unidades de red <strong>SMB y WebDAV</strong>, reproductor audiófilo <strong>Bit-Perfect con DAC USB, Ecualizador de 10 bandas y Android Auto</strong>, y acceso remoto <strong>cifrado punto a punto (DTLS)</strong> desde la Web o desde otros dispositivos Android.
         </p>
-        <div class="flex flex-wrap items-center gap-3 pt-2" id="descargar">
-          <a href="#spot" class="px-6 py-3 rounded-xl bg-[#E50914] hover:bg-red-700 text-white font-extrabold text-sm shadow-xl flex items-center gap-2.5 transition">
+
+        <!-- Píldoras rápidas de tecnologías -->
+        <div class="flex flex-wrap gap-2 text-[11px] font-bold text-gray-200">
+          <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">🔌 USB NTFS / exFAT / FAT32 Completo</span>
+          <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">🚗 Android Auto</span>
+          <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">🎧 Bit-Perfect &amp; DAC USB</span>
+          <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">🎚️ EQ 10 Bandas + Pre-Amp + Bass Boost</span>
+          <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">⚡ Transcodificación por Hardware</span>
+          <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">🔒 Cifrado Punto a Punto DTLS</span>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a href="#descargar" class="px-6 py-3.5 rounded-xl bg-[#E50914] hover:bg-red-700 text-white font-extrabold text-sm shadow-xl flex items-center gap-2.5 transition">
             <i class="fa-brands fa-android text-lg"></i>
-            <span>Descargar Hemeroteca para Android / TV</span>
+            <span>Descargar App Oficial (APK)</span>
           </a>
-          <a href="#spot" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-bold text-sm flex items-center gap-2 transition">
-            <i class="fa-solid fa-circle-play text-[#00E5FF]"></i>
-            <span>Ver Spot Publicitario</span>
+          <a href="#spot" onclick="window.startEpicSpot && window.startEpicSpot()" class="px-5 py-3.5 rounded-xl bg-[#00E5FF]/15 hover:bg-[#00E5FF]/25 border border-[#00E5FF]/40 text-[#00E5FF] font-extrabold text-sm flex items-center gap-2 transition">
+            <i class="fa-solid fa-play"></i>
+            <span>Ver Spot Publicitario Épico</span>
+          </a>
+          <a href="#precios" class="px-4 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-200 font-bold text-sm transition">
+            14 Días de Prueba Gratis
           </a>
         </div>
       </div>
 
-      <!-- Tarjeta de Conexión Directa a Servidor por Código -->
+      <!-- TARJETA DE CONEXIÓN DIRECTA AL SERVIDOR POR CÓDIGO -->
       <div class="lg:col-span-5" id="conectar">
-        <div class="glass-card rounded-2xl p-6 shadow-2xl border border-[#00E5FF]/30 space-y-4">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <div class="w-10 h-10 rounded-xl bg-[#00E5FF]/15 border border-[#00E5FF]/40 flex items-center justify-center text-[#00E5FF]">
-                <i class="fa-solid fa-lock"></i>
-              </div>
-              <div>
-                <h2 class="text-base font-extrabold text-white">Acceso Web HTTPS a tu Servidor</h2>
-                <p class="text-xs text-gray-400">Conexión P2P encriptada DTLS directa a tu equipo</p>
-              </div>
+        <div class="glass-card rounded-2xl p-6 shadow-2xl border border-[#00E5FF]/35 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-[#00E5FF]/15 border border-[#00E5FF]/40 flex items-center justify-center text-[#00E5FF] text-lg shrink-0">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <div>
+              <span class="text-[10px] font-extrabold uppercase tracking-wider text-[#00E5FF]">Puente WebRTC HTTPS P2P</span>
+              <h2 class="text-base sm:text-lg font-extrabold text-white">Conectar a un Servidor Hemeroteca</h2>
             </div>
           </div>
 
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Accede a tu servidor desde cualquier navegador del mundo (Wi-Fi o 4G/5G) con <strong>cifrado punto a punto</strong> sin abrir puertos en tu router.
+          </p>
+
           <form id="connect-code-form" class="space-y-3">
             <div>
-              <label class="block text-xs font-bold text-gray-300 mb-1.5">Código P2P de tu servidor</label>
+              <label class="block text-xs font-bold text-gray-300 mb-1.5">Introduce el código P2P del servidor</label>
               <input
                 id="input-share-code"
                 type="text"
                 placeholder="HMR-XXXX-YYYY"
                 maxlength="13"
-                class="w-full px-4 py-3 rounded-xl bg-[#090C12] border border-gray-700 focus:border-[#00E5FF] outline-none font-mono font-extrabold text-base text-[#00E5FF] tracking-wider uppercase text-center"
+                class="w-full px-4 py-3 rounded-xl bg-[#070A0F] border border-gray-700 focus:border-[#00E5FF] outline-none font-mono font-extrabold text-base text-[#00E5FF] tracking-wider uppercase text-center"
                 required
               />
             </div>
@@ -132,87 +184,388 @@
               class="w-full py-3 rounded-xl bg-gradient-to-r from-[#0288D1] to-[#00ACC1] hover:brightness-110 text-white font-extrabold text-sm shadow-lg flex items-center justify-center gap-2 cursor-pointer transition"
             >
               <i class="fa-solid fa-bolt"></i>
-              <span>Conectar a mi Servidor</span>
+              <span>Entrar al Servidor por HTTPS</span>
             </button>
           </form>
-          <p class="text-[11px] text-gray-400 leading-relaxed">
-            💡 También puedes entrar directamente escribiendo <code class="text-[#00E5FF] bg-black/50 px-1.5 py-0.5 rounded">https://multimimedia.github.io/HMR-XXXX-YYYY</code> en la barra de tu navegador.
+
+          <div class="p-3 rounded-xl bg-black/40 border border-white/5 text-[11px] text-gray-400 space-y-1">
+            <div>🔗 <strong>Acceso directo por URL:</strong></div>
+            <div class="font-mono text-[#00E5FF] break-all">https://multimimedia.github.io/HMR-XXXX-YYYY</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECCIÓN SPOT PUBLICITARIO ÉPICO INTERACTIVO (Y SOPORTE PARA spot.mp4)
+         ======================================================================= -->
+    <section id="spot" class="px-4 sm:px-8 py-10 max-w-6xl mx-auto w-full">
+      <div class="glass-card rounded-3xl p-5 sm:p-8 border border-white/15 shadow-2xl space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <span class="text-xs font-extrabold text-[#00E5FF] uppercase tracking-widest">🎬 Spot Oficial Interactivo</span>
+            <h2 class="text-xl sm:text-3xl font-black text-white">Hemeroteca en Acción: La Revolución Multimedia</h2>
+          </div>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="window.toggleEpicSpot()" id="spot-play-btn" class="px-4 py-2 rounded-xl bg-[#E50914] hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-2 cursor-pointer transition shadow">
+              <i id="spot-play-icon" class="fa-solid fa-pause"></i>
+              <span id="spot-play-text">Pausar Spot</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenedor Cinematográfico 16:9 -->
+        <div class="relative aspect-video rounded-2xl overflow-hidden spot-gradient-bg border border-white/15 shadow-2xl select-none">
+          <!-- Si subes un archivo spot.mp4 al repositorio, se reproduce automáticamente aquí -->
+          <video id="promo-video" class="w-full h-full object-cover hidden" controls preload="metadata">
+            <source src="/spot.mp4" type="video/mp4" />
+          </video>
+
+          <!-- Spot Épico Animado Integrado (7 Escenas Cinematográficas) -->
+          <div id="epic-spot-stage" class="absolute inset-0 flex flex-col justify-between p-5 sm:p-10">
+            <!-- Cabecera del Spot -->
+            <div class="flex items-center justify-between">
+              <span id="spot-scene-badge" class="px-3 py-1 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider bg-[#E50914] text-white shadow-lg">
+                ESCENA 1 / 7 • EL PRIMER SERVIDOR NATIVO
+              </span>
+              <span class="text-[11px] font-mono text-white/70 bg-black/50 px-2.5 py-1 rounded-full border border-white/10">
+                4K HDR • P2P DTLS • HI-FI BIT-PERFECT
+              </span>
+            </div>
+
+            <!-- Centro Visual de la Escena -->
+            <div class="my-auto max-w-3xl space-y-3 sm:space-y-4 transition-all duration-500" id="spot-scene-content">
+              <div id="spot-scene-icon" class="text-3xl sm:text-6xl animate-pulse-glow">🚀</div>
+              <h3 id="spot-scene-title" class="text-xl sm:text-4xl md:text-5xl font-black text-white leading-tight drop-shadow-lg">
+                El Primer Servidor Multimedia 100% Nativo en Android
+              </h3>
+              <p id="spot-scene-desc" class="text-xs sm:text-base md:text-lg text-gray-200 leading-relaxed max-w-2xl">
+                Mientras otros usan pesadas capas web, Hemeroteca corre de forma 100% nativa en tu TV Box, Smart TV o móvil con motor Ktor, transcodificación por hardware y driver USB propio para NTFS, exFAT y FAT32 sin root.
+              </p>
+              <div id="spot-scene-tags" class="flex flex-wrap gap-2 pt-1"></div>
+            </div>
+
+            <!-- Controles de Escenas y Barra de Progreso del Spot -->
+            <div class="space-y-2.5">
+              <div class="grid grid-cols-7 gap-1.5">
+                <button type="button" onclick="window.goToSpotScene(0)" class="spot-step-bar h-1.5 rounded-full bg-[#00E5FF] cursor-pointer border-0 transition-all"></button>
+                <button type="button" onclick="window.goToSpotScene(1)" class="spot-step-bar h-1.5 rounded-full bg-white/25 cursor-pointer border-0 transition-all"></button>
+                <button type="button" onclick="window.goToSpotScene(2)" class="spot-step-bar h-1.5 rounded-full bg-white/25 cursor-pointer border-0 transition-all"></button>
+                <button type="button" onclick="window.goToSpotScene(3)" class="spot-step-bar h-1.5 rounded-full bg-white/25 cursor-pointer border-0 transition-all"></button>
+                <button type="button" onclick="window.goToSpotScene(4)" class="spot-step-bar h-1.5 rounded-full bg-white/25 cursor-pointer border-0 transition-all"></button>
+                <button type="button" onclick="window.goToSpotScene(5)" class="spot-step-bar h-1.5 rounded-full bg-white/25 cursor-pointer border-0 transition-all"></button>
+                <button type="button" onclick="window.goToSpotScene(6)" class="spot-step-bar h-1.5 rounded-full bg-white/25 cursor-pointer border-0 transition-all"></button>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-gray-400">
+                <span id="spot-footer-caption">Pulsa en cualquier barra para saltar de escena</span>
+                <div class="flex items-center gap-2">
+                  <button type="button" onclick="window.shiftSpotScene(-1)" class="px-2.5 py-1 rounded bg-white/10 hover:bg-white/20 text-white cursor-pointer">◀ Anterior</button>
+                  <button type="button" onclick="window.shiftSpotScene(1)" class="px-2.5 py-1 rounded bg-white/10 hover:bg-white/20 text-white cursor-pointer">Siguiente ▶</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECCIÓN ESPECIAL: AUDIO HI-FI AUDIÓFILO, DISCOGRAFÍAS Y ANDROID AUTO
+         ======================================================================= -->
+    <section id="hifi" class="px-4 sm:px-8 py-10 max-w-7xl mx-auto w-full">
+      <div class="glass-card rounded-3xl p-6 sm:p-10 border border-amber-500/30 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-400/40 text-amber-300 text-xs font-extrabold">
+            <i class="fa-solid fa-headphones"></i>
+            <span>SONIDO AUDIÓFILO HI-RES • ANDROID AUTO • DAC USB</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+            Un Reproductor Musical de Élite en Casa y en tu Coche con <span class="text-amber-400">Android Auto</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+            Hemeroteca incluye un motor de audio dedicado para los amantes del sonido puro, compatible con todos los formatos sin pérdida (<strong>FLAC, WAV, OPUS, AAC, M4A, OGG, MP3, WMA</strong>) tanto en local como en streaming desde tu servidor.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+            <div class="p-3.5 rounded-xl bg-black/40 border border-white/10">
+              <div class="font-extrabold text-sm text-amber-300 mb-1">🎚️ Ecualizador de 10 Bandas + DSP</div>
+              <p class="text-xs text-gray-400">Ajuste preciso de 10 bandas de frecuencia, <strong>Pre-amplificador</strong> de ganancia y refuerzo de graves <strong>Bass Boost</strong>.</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-black/40 border border-white/10">
+              <div class="font-extrabold text-sm text-amber-300 mb-1">🎧 Modo Bit-Perfect &amp; DAC USB</div>
+              <p class="text-xs text-gray-400">Entrega la señal digital pura sin remuestreo directamente a tu <strong>DAC USB externo</strong> o equipo Hi-Fi.</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-black/40 border border-white/10">
+              <div class="font-extrabold text-sm text-amber-300 mb-1">💿 Buscador de Discografías y Álbumes</div>
+              <p class="text-xs text-gray-400">Explora y busca discografías, álbumes, portadas, canciones y listas de reproducción de cualquier cantante al instante.</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-black/40 border border-white/10">
+              <div class="font-extrabold text-sm text-amber-300 mb-1">🚗 Integración Nativa con Android Auto</div>
+              <p class="text-xs text-gray-400">Lleva toda la música de tu servidor directamente a la pantalla de tu coche con navegación por artistas, álbumes y playlists.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visualizador Gráfico del Ecualizador de 10 Bandas -->
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl bg-[#080B10] border border-amber-500/30 p-5 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+              <div>
+                <span class="text-xs font-black text-amber-400">DSP HI-FI ENGINE</span>
+                <p class="text-[11px] text-gray-400">Bit-Perfect • USB DAC Direct • 10-Band EQ</p>
+              </div>
+              <span class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[10px] font-extrabold">ACTIVO</span>
+            </div>
+            <!-- 10 Bandas Animadas -->
+            <div class="h-36 flex items-end justify-between gap-2 px-2 pt-4 bg-black/50 rounded-xl border border-white/5">
+              <div class="flex-1 flex flex-col items-center h-full justify-end"><div class="w-full rounded-t bg-gradient-to-t from-amber-500 to-[#00E5FF] eq-bar-1"></div><span class="text-[9px] text-gray-500 mt-1">31</span></div>
+              <div class="flex-1 flex flex-col items-center h-full justify-end"><div class="w-full rounded-t bg-gradient-to-t from-amber-500 to-[#00E5FF] eq-bar-2"></div><span class="text-[9px] text-gray-500 mt-1">62</span></div>
+              <div class="flex-1 flex flex-col items-center h-full justify-end"><div class="w-full rounded-t bg-gradient-to-t from-amber-500 to-[#00E5FF] eq-bar-3"></div><span class="text-[9px] text-gray-500 mt-1">125</span></div>
+              <div class="flex-1 flex flex-col items-center h-full justify-end"><div class="w-full rounded-t bg-gradient-to-t from-amber-500 to-[#00E5FF] eq-bar-1"></div><span class="text-[9px] text-gray-500 mt-1">250</span></div>
+              <div class="flex-1 flex flex-col items-center h-full justify-end"><div class="w-full rounded-t bg-gradient-to-t from-amber-500 to-[#00E5FF] eq-bar-3"></div><span class="text-[9px] text-gray-500 mt-1">500</span></div>
+              <div class="flex-1 flex flex-col items-center h-full justify-end"><div class="w-full rounded-t bg-gradient-to-t from-amber-500 to-[#00E5FF] eq-bar-2"></div><span class="text-[9px] text-gray-500 mt-1">1k</span></div>
+              <div class="flex-1 flex flex-col items-center h-full justify-end"><div class="w-full rounded-t bg-gradient-to-t from-amber-500 to-[#00E5FF] eq-bar-1"></div><span class="text-[9px] text-gray-500 mt-1">2k</span></div>
+              <div class="flex-1 flex flex-col items-center h-full justify-end"><div class="w-full rounded-t bg-gradient-to-t from-amber-500 to-[#00E5FF] eq-bar-3"></div><span class="text-[9px] text-gray-500 mt-1">4k</span></div>
+              <div class="flex-1 flex flex-col items-center h-full justify-end"><div class="w-full rounded-t bg-gradient-to-t from-amber-500 to-[#00E5FF] eq-bar-2"></div><span class="text-[9px] text-gray-500 mt-1">8k</span></div>
+              <div class="flex-1 flex flex-col items-center h-full justify-end"><div class="w-full rounded-t bg-gradient-to-t from-amber-500 to-[#00E5FF] eq-bar-1"></div><span class="text-[9px] text-gray-500 mt-1">16k</span></div>
+            </div>
+            <div class="grid grid-cols-3 gap-2 text-center text-[11px] font-bold">
+              <div class="p-2 rounded-lg bg-white/5 border border-white/10 text-amber-300">Pre-Amp +dB</div>
+              <div class="p-2 rounded-lg bg-white/5 border border-white/10 text-[#00E5FF]">Bass Boost</div>
+              <div class="p-2 rounded-lg bg-white/5 border border-white/10 text-emerald-300">USB DAC Direct</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         TODAS LAS FUNCIONES DE HEMEROTECA (LISTADO COMPLETO)
+         ======================================================================= -->
+    <section id="funciones" class="px-4 sm:px-8 py-12 max-w-7xl mx-auto w-full space-y-8">
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-xs font-extrabold text-[#00E5FF] uppercase tracking-widest">Arquitectura 100% Nativa</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-white">Todo lo que Hace Único a Hemeroteca</h2>
+        <p class="text-xs sm:text-sm text-gray-400">
+          Diseñado desde cero en Kotlin nativo para exprimir el hardware de tu TV Box, Smart TV, móvil o tablet sin depender de servidores externos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="glass-card rounded-2xl p-5 space-y-2 border-l-4 border-l-[#E50914]">
+          <div class="text-2xl">🎬</div>
+          <h3 class="font-extrabold text-base text-white">Escaparate Hub con Carátulas y Sinopsis</h3>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Obtén automáticamente <strong>carátulas, posters, banners, sinopsis, año, valoración, director y reparto</strong> de tus películas y series. Sincroniza el minuto exacto en la fila <em>«Seguir Viendo»</em> entre todos tus dispositivos.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 space-y-2 border-l-4 border-l-[#00E5FF]">
+          <div class="text-2xl">📺</div>
+          <h3 class="font-extrabold text-base text-white">Tus Propios Canales de YouTube</h3>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Organiza tus canales descargados de YouTube o podcasts con su avatar, banner, fecha y buscador interno para disfrutar de tus vídeos favoritos <strong>como si estuvieras en YouTube</strong>, sin anuncios ni cortes.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 space-y-2 border-l-4 border-l-emerald-400">
+          <div class="text-2xl">🔌</div>
+          <h3 class="font-extrabold text-base text-white">Soporte NTFS Completo + FAT32 + exFAT</h3>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Driver USB propio a nivel de bloque que permite <strong>leer y escribir en discos duros NTFS, exFAT y FAT32</strong> directamente en Android TV y móviles aunque el fabricante haya recortado el sistema operativo, sin necesidad de root.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 space-y-2 border-l-4 border-l-purple-400">
+          <div class="text-2xl">⚡</div>
+          <h3 class="font-extrabold text-base text-white">Transcodificación por Hardware y Todos los Formatos</h3>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Aceleración por hardware (<code>h264_mediacodec</code>) y motor FFmpeg integrado. Reproduce formatos antiguos y modernos: <strong>AVI, DivX, XviD, WMV, FLV, MPG, VOB, 3GP, MKV, MP4, MOV, WebM, TS, HEVC/H.265, AV1</strong> y fotos <strong>RAW profesionales (CR2, NEF, ARW, DNG)</strong>.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 space-y-2 border-l-4 border-l-amber-400">
+          <div class="text-2xl">📁</div>
+          <h3 class="font-extrabold text-base text-white">Explorador de Archivos Bidireccional Mundial</h3>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Accede desde cualquier parte del mundo a <strong>PDFs, fotos, vídeos, documentos y carpetas completas</strong> de tu servidor. <strong>Sube y descarga archivos bidireccionalmente</strong> entre el cliente (App o Web) y el servidor, copia, mueve o renombra con reanudación automática.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 space-y-2 border-l-4 border-l-pink-400">
+          <div class="text-2xl">👥</div>
+          <h3 class="font-extrabold text-base text-white">Comparte con Familia y Amigos con Control Total</h3>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Crea cuentas para tus familiares o amigos, aprueba quién entra, limita si pueden conectarse por Wi-Fi local o desde fuera, y <strong>elige con casillas exactamente qué bibliotecas, subcarpetas o archivos individuales</strong> puede ver o reproducir cada usuario.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 space-y-2 border-l-4 border-l-cyan-400">
+          <div class="text-2xl">🖥️</div>
+          <h3 class="font-extrabold text-base text-white">Unidades de Red SMB / Samba y WebDAV</h3>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Monta carpetas compartidas de ordenadores Windows/Mac, servidores NAS (Synology, QNAP) o nubes WebDAV (Nextcloud, OwnCloud) directamente dentro de la app y compártelas con tus dispositivos.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 space-y-2 border-l-4 border-l-teal-400">
+          <div class="text-2xl">🔒</div>
+          <h3 class="font-extrabold text-base text-white">Privacidad Absoluta y Cifrado Punto a Punto</h3>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Tus archivos jamás se suben a servidores externos: viajan directo entre tu servidor y tu pantalla con <strong>cifrado punto a punto WebRTC (DTLS 1.2/1.3)</strong>, protección anti-fuerza bruta con bloqueo de IP y Modo Restringido.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 space-y-2 border-l-4 border-l-indigo-400">
+          <div class="text-2xl">💬</div>
+          <h3 class="font-extrabold text-base text-white">Acceso Nativo Android/Web + Soporte Directo</h3>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Conéctate de forma nativa desde otros teléfonos, tablets o Android TV con la app, o desde cualquier navegador Web. Incluye <strong>canal de soporte directo con el desarrollador</strong> integrado dentro de la propia aplicación.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Sección Spot Publicitario / Vídeo Interactivo -->
-    <section id="spot" class="px-4 sm:px-8 py-10 max-w-6xl mx-auto w-full">
-      <div class="glass-card rounded-2xl p-6 sm:p-8 border border-white/10 shadow-2xl space-y-5">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div>
-            <span class="text-xs font-extrabold text-[#00E5FF] uppercase tracking-wider">Presentación Oficial</span>
-            <h2 class="text-xl sm:text-2xl font-black text-white">Descubre todo lo que hace Hemeroteca</h2>
+    <!-- =======================================================================
+         PLANES Y PRECIOS OFICIALES
+         ======================================================================= -->
+    <section id="precios" class="px-4 sm:px-8 py-12 max-w-7xl mx-auto w-full space-y-8">
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-xs font-extrabold text-[#00E5FF] uppercase tracking-widest">Planes Transparentes</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-white">Empieza Gratis Hoy Mismo</h2>
+        <p class="text-xs sm:text-sm text-gray-400">
+          El modo Reproductor Local y App Cliente es <strong>siempre gratis</strong>. Para convertir tu dispositivo en Servidor y compartir en red o en remoto por 4G/5G, tienes <strong>14 días de prueba gratuita</strong> sin compromiso.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Plan 1: Local & Cliente -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-white/10">
+          <div class="space-y-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-black uppercase">SIEMPRE GRATIS</span>
+            <h3 class="text-lg font-extrabold text-white">Reproductor Local y Cliente</h3>
+            <div class="text-3xl font-black text-white">0 € <span class="text-xs font-normal text-gray-400">/ sin cuenta ni tarjeta</span></div>
+            <ul class="space-y-2 text-xs text-gray-300 pt-2">
+              <li>✅ Reproducción local ilimitada (interno, USB NTFS/exFAT/FAT32 y DAC USB)</li>
+              <li>✅ App Cliente para conectarte a un Servidor Hemeroteca</li>
+              <li>✅ Audio Hi-Fi Bit-Perfect, EQ de 10 bandas y Android Auto</li>
+            </ul>
           </div>
-          <span class="text-xs text-gray-400">Compatible con Móviles, Tablets, Smart TV y TV Box</span>
+          <a href="#descargar" class="mt-6 block text-center py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs no-underline transition">Descargar Gratis</a>
         </div>
-        <!-- Reproductor listo para tu vídeo spot.mp4 en el repositorio -->
-        <div class="relative aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-[#121826] via-[#0B0E14] to-[#1A0D14] border border-white/10 flex flex-col items-center justify-center text-center p-6">
-          <video id="promo-video" class="w-full h-full object-cover hidden" controls preload="metadata" poster="">
-            <source src="/spot.mp4" type="video/mp4" />
-          </video>
-          <div id="promo-placeholder" class="space-y-3 max-w-lg">
-            <div class="w-16 h-16 rounded-full bg-[#E50914]/20 border border-[#E50914] flex items-center justify-center mx-auto text-[#E50914] text-2xl shadow-xl">
-              <i class="fa-solid fa-film"></i>
-            </div>
-            <h3 class="text-lg sm:text-xl font-extrabold text-white">Escaparate Hub • Streaming P2P • Explorador Remoto</h3>
-            <p class="text-xs sm:text-sm text-gray-400">
-              Para mostrar aquí tu spot publicitario en vídeo, sube tu archivo <code class="text-white bg-white/10 px-1.5 py-0.5 rounded">spot.mp4</code> a este repositorio y se reproducirá automáticamente en este reproductor.
-            </p>
+
+        <!-- Plan 2: Prueba 14 Días -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-[#00E5FF]/40">
+          <div class="space-y-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-[#00E5FF]/20 text-[#00E5FF] text-[10px] font-black uppercase">14 DÍAS GRATIS</span>
+            <h3 class="text-lg font-extrabold text-white">Prueba Servidor &amp; Cloud</h3>
+            <div class="text-3xl font-black text-[#00E5FF]">0 € <span class="text-xs font-normal text-gray-400">/ 14 días completos</span></div>
+            <ul class="space-y-2 text-xs text-gray-300 pt-2">
+              <li>✅ 1 Servidor activo (Wi-Fi LAN, WebRTC P2P 4G/5G y Tailscale)</li>
+              <li>✅ Gestión de bibliotecas compartidas, contraseñas y usuarios</li>
+              <li>✅ Código HMR-XXXX-YYYY y acceso Web HTTPS para hasta 2 dispositivos</li>
+            </ul>
           </div>
+          <a href="#descargar" class="mt-6 block text-center py-2.5 rounded-xl bg-[#0288D1] hover:bg-[#0277BD] text-white font-extrabold text-xs no-underline transition">Probar 14 Días Gratis</a>
+        </div>
+
+        <!-- Plan 3: Estándar -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-white/10">
+          <div class="space-y-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-white/10 text-gray-200 text-[10px] font-black uppercase">PERSONAL</span>
+            <h3 class="text-lg font-extrabold text-white">Plan Estándar</h3>
+            <div class="text-3xl font-black text-white">2,99 €<span class="text-sm font-normal text-gray-400">/mes</span></div>
+            <ul class="space-y-2 text-xs text-gray-300 pt-2">
+              <li>✅ 1 Servidor remoto activo + hasta <strong>10 dispositivos</strong> vinculados</li>
+              <li>✅ Streaming WebRTC P2P directo 4K y Explorador Bidireccional</li>
+              <li>✅ Suscripción mensual flexible sin permanencia</li>
+            </ul>
+          </div>
+          <a href="#descargar" class="mt-6 block text-center py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs no-underline transition">Elegir en la App</a>
+        </div>
+
+        <!-- Plan 4: Pro / Familiar -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-white/10">
+          <div class="space-y-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-[10px] font-black uppercase">FAMILIAR</span>
+            <h3 class="text-lg font-extrabold text-white">Pro / Familiar</h3>
+            <div class="text-3xl font-black text-white">4,99 €<span class="text-sm font-normal text-gray-400">/mes</span></div>
+            <ul class="space-y-2 text-xs text-gray-300 pt-2">
+              <li>✅ 1 Servidor remoto + hasta <strong>25 dispositivos</strong> familiares</li>
+              <li>✅ Ideal para la TV del salón, móviles, tablets, coches y viajes</li>
+              <li>✅ Control total de usuarios y permisos por carpeta/archivo</li>
+            </ul>
+          </div>
+          <a href="#descargar" class="mt-6 block text-center py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs no-underline transition">Elegir en la App</a>
+        </div>
+
+        <!-- Plan 5: Pro Anual (Destacado) -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border-2 border-[#E50914] shadow-2xl relative">
+          <div class="space-y-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-[#E50914] text-white text-[10px] font-black uppercase">MÁS POPULAR · AHORRA 50%</span>
+            <h3 class="text-lg font-extrabold text-white">Pro Anual</h3>
+            <div class="text-3xl font-black text-white">29,99 €<span class="text-sm font-normal text-gray-400">/año</span></div>
+            <p class="text-[11px] text-emerald-400 font-bold">Equivale a solo 2,50 €/mes</p>
+            <ul class="space-y-2 text-xs text-gray-300 pt-1">
+              <li>✅ 1 Servidor remoto + hasta <strong>25 dispositivos</strong> durante 12 meses</li>
+              <li>✅ Ahorras un 50 % frente al plan mensual Pro</li>
+              <li>✅ Todas las funciones P2P, Hi-Fi, USB NTFS y Explorador Remoto</li>
+            </ul>
+          </div>
+          <a href="#descargar" class="mt-6 block text-center py-2.5 rounded-xl bg-[#E50914] hover:bg-red-700 text-white font-extrabold text-xs no-underline transition shadow-lg">Activar desde la App</a>
+        </div>
+
+        <!-- Plan 6: Lifetime -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-amber-400/50">
+          <div class="space-y-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-black uppercase">PAGO ÚNICO · PARA SIEMPRE</span>
+            <h3 class="text-lg font-extrabold text-white">Licencia Lifetime</h3>
+            <div class="text-3xl font-black text-amber-400">39,99 € <span class="text-xs font-normal text-gray-400">/ pago único</span></div>
+            <ul class="space-y-2 text-xs text-gray-300 pt-2">
+              <li>✅ 1 Servidor + hasta <strong>25 dispositivos para siempre</strong>, sin cuotas</li>
+              <li>✅ Acceso vitalicio a todas las actualizaciones P2P, hardware y Hi-Fi</li>
+              <li>✅ Soporte prioritario directo con el desarrollador</li>
+            </ul>
+          </div>
+          <a href="#descargar" class="mt-6 block text-center py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs no-underline transition">Conseguir Lifetime</a>
         </div>
       </div>
     </section>
 
-    <!-- Características Principales -->
-    <section id="funciones" class="px-4 sm:px-8 py-10 max-w-7xl mx-auto w-full">
-      <h2 class="text-2xl sm:text-3xl font-black text-center mb-8">Potencia de Servidor, Sencillez de App</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="glass-card rounded-2xl p-5 space-y-2">
-          <div class="text-2xl">🎬</div>
-          <h3 class="font-extrabold text-base text-white">Escaparate Hub Inteligente</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Organiza Cine, Series, Música, Fotos y Canales con carátulas, sinopsis, progreso de «Seguir Viendo» sincronizado y reproducción directa o HLS.</p>
+    <!-- =======================================================================
+         SECCIÓN DE DESCARGA DIRECTA DEL APK
+         ======================================================================= -->
+    <section id="descargar" class="px-4 sm:px-8 py-12 max-w-5xl mx-auto w-full">
+      <div class="glass-card rounded-3xl p-6 sm:p-10 border border-[#E50914]/40 shadow-2xl text-center space-y-5">
+        <div class="w-16 h-16 rounded-2xl bg-[#E50914]/20 border border-[#E50914] flex items-center justify-center mx-auto text-[#E50914] text-3xl shadow-xl">
+          <i class="fa-brands fa-android"></i>
         </div>
-        <div class="glass-card rounded-2xl p-5 space-y-2">
-          <div class="text-2xl">🔌</div>
-          <h3 class="font-extrabold text-base text-white">USB Directo NTFS / exFAT / FAT32</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Driver USB propio integrado a nivel de bloque para leer y gestionar discos duros externos en TV Box y móviles sin necesidad de root.</p>
+        <h2 class="text-2xl sm:text-4xl font-black text-white">Descarga Hemeroteca para Android, Android TV y TV Box</h2>
+        <p class="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          Un único instalador universal (<code>Hemeroteca.apk</code>) compatible con teléfonos móviles, tablets, televisores Android TV / Google TV, Fire TV, Xiaomi Mi Box y TV Box desde Android 8.0 hasta Android 16.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <a
+            href="https://github.com/multimimedia/multimimedia.github.io/releases/latest/download/Hemeroteca.apk"
+            class="px-8 py-4 rounded-2xl bg-[#E50914] hover:bg-red-700 text-white font-black text-base shadow-2xl flex items-center gap-3 no-underline transition transform hover:scale-105"
+          >
+            <i class="fa-solid fa-download text-xl"></i>
+            <span>Descargar Hemeroteca.apk</span>
+          </a>
         </div>
-        <div class="glass-card rounded-2xl p-5 space-y-2">
-          <div class="text-2xl">🖥️</div>
-          <h3 class="font-extrabold text-base text-white">Unidades de Red SMB y WebDAV</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Conecta carpetas compartidas de Windows, NAS Synology/QNAP, routers o nubes Nextcloud/OwnCloud como bibliotecas locales.</p>
-        </div>
-        <div class="glass-card rounded-2xl p-5 space-y-2">
-          <div class="text-2xl">🔒</div>
-          <h3 class="font-extrabold text-base text-white">Conexión P2P Encriptada DTLS</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Accede desde fuera de casa por 4G/5G mediante código único HMR-XXXX-YYYY. Tus vídeos viajan directo entre tu servidor y tu pantalla sin pasar por terceros.</p>
-        </div>
-        <div class="glass-card rounded-2xl p-5 space-y-2">
-          <div class="text-2xl">👥</div>
-          <h3 class="font-extrabold text-base text-white">Control Granular de Usuarios</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Elige exactamente qué bibliotecas, subcarpetas o archivos puede ver o gestionar cada familiar o amigo desde la app.</p>
-        </div>
-        <div class="glass-card rounded-2xl p-5 space-y-2">
-          <div class="text-2xl">📁</div>
-          <h3 class="font-extrabold text-base text-white">Explorador de Archivos Remoto</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">Sube, descarga, copia, mueve y organiza archivos y carpetas completas entre tus dispositivos desde la app o desde el navegador web.</p>
-        </div>
+        <p class="text-[11px] text-gray-400">
+          📦 100% libre de anuncios • Incluye 14 días de prueba gratuita del modo Servidor • Soporte directo integrado en la app
+        </p>
       </div>
     </section>
 
     <footer class="mt-auto border-t border-white/10 py-6 px-4 text-center text-xs text-gray-500">
-      © Hemeroteca — Centro Multimedia &amp; Servidor P2P Personal. Conexión punto a punto cifrada extremo a extremo.
+      © Hemeroteca — El Primer Servidor Multimedia P2P 100% Nativo en Android. Privacidad absoluta y cifrado punto a punto DTLS.
     </footer>
   </div>
 
-  <!-- VISTA 2: PANTALLA DE CONEXIÓN DEL TÚNEL WEBRTC P2P (Cuando la URL incluye /HMR-XXXX-YYYY) -->
+  <!-- =========================================================================
+       VISTA 2: PANTALLA DE CONEXIÓN DEL TÚNEL WEBRTC P2P (/HMR-XXXX-YYYY)
+       ========================================================================= -->
   <div id="bridge-status-root" class="hidden min-h-screen flex items-center justify-center p-4">
     <div class="glass-card rounded-2xl p-6 sm:p-8 max-w-md w-full text-center space-y-4 border border-[#00E5FF]/30 shadow-2xl">
       <div class="w-14 h-14 rounded-2xl bg-[#00E5FF]/15 border border-[#00E5FF]/40 flex items-center justify-center mx-auto text-[#00E5FF] text-2xl">
@@ -243,7 +596,150 @@
     const SUPABASE_KEY = 'sb_publishable_2fr0_V6Abir0ypbuc6ffMg_WrMM2yzT';
     const SHARE_CODE_REGEX = /^HMR-[A-Z0-9]{4}-[A-Z0-9]{4}$/i;
 
-    // protocolo binario WebRtcMuxCodec.kt (9 bytes Big-Endian: [type:1B][streamId:4B][len:4B])
+    // -------------------------------------------------------------------------
+    // SPOT PUBLICITARIO ÉPICO INTERACTIVO (7 ESCENAS AUTOMÁTICAS)
+    // -------------------------------------------------------------------------
+    const SPOT_SCENES = [
+      {
+        badge: 'ESCENA 1 / 7 • EL PRIMER SERVIDOR NATIVO',
+        badgeColor: '#E50914',
+        icon: '🚀',
+        title: 'El Primer Servidor Multimedia 100% Nativo en Android',
+        desc: 'Olvídate de servidores web lentos o complicados. Convierte tu TV Box, Smart TV o móvil en una central multimedia nativa con Escaparate Hub, carátulas, sinopsis, reparto y valoraciones automáticas.',
+        tags: ['100% Nativo Kotlin', 'Escaparate Hub', 'Carátulas & Sinopsis', 'Android TV & Móvil']
+      },
+      {
+        badge: 'ESCENA 2 / 7 • DRIVER USB PROPIO SIN ROOT',
+        badgeColor: '#00C853',
+        icon: '🔌',
+        title: 'Soporte USB NTFS Completo, exFAT, FAT32 y Red SMB / WebDAV',
+        desc: 'Conecta cualquier disco duro externo o pendrive sin importar el formato ni las limitaciones de tu TV. Incluye lectura/escritura NTFS directa a nivel de bloque y conexión a NAS por SMB2/3 y WebDAV.',
+        tags: ['NTFS Lectura/Escritura', 'exFAT & FAT32', 'SMB / Samba', 'WebDAV Cloud']
+      },
+      {
+        badge: 'ESCENA 3 / 7 • SONIDO AUDIÓFILO & ANDROID AUTO',
+        badgeColor: '#FF9800',
+        icon: '🎧',
+        title: 'Audio Hi-Fi Bit-Perfect, DAC USB, EQ 10 Bandas y Android Auto',
+        desc: 'Disfruta de tu música con calidad de estudio: salida Bit-Perfect directa para DAC USB, ecualizador de 10 bandas con Pre-amplificador y Bass Boost, buscador de discografías y soporte nativo para Android Auto en tu coche.',
+        tags: ['Bit-Perfect & DAC USB', 'EQ 10 Bandas + Pre-Amp', 'Bass Boost', 'Android Auto']
+      },
+      {
+        badge: 'ESCENA 4 / 7 • TUS CANALES DE YOUTUBE',
+        badgeColor: '#E91E63',
+        icon: '📺',
+        title: 'Organiza tus Propios Canales de YouTube y Podcasts',
+        desc: 'Visualiza tus canales descargados con su avatar, portada, fechas y buscador instantáneo exactamente como si estuvieras dentro de YouTube, pero en tu propio servidor privado y sin anuncios.',
+        tags: ['Interfaz Estilo YouTube', 'Avatares & Banners', 'Reproducción Continua', '0% Anuncios']
+      },
+      {
+        badge: 'ESCENA 5 / 7 • TRANSCODIFICACIÓN POR HARDWARE',
+        badgeColor: '#9C27B0',
+        icon: '⚡',
+        title: 'Transcodificación por Hardware y Todos los Formatos Antiguos y Modernos',
+        desc: 'Reproduce desde clásicos AVI, DivX, WMV, MPG, VOB o 3GP hasta MKV/MP4 4K HEVC y fotografías RAW profesionales (CR2, NEF, ARW, DNG) con aceleración por hardware MediaCodec y FFmpeg.',
+        tags: ['Hardware MediaCodec', 'AVI / DivX / MKV / MP4', 'Fotos RAW Profesionales', 'Streaming HLS Adaptativo']
+      },
+      {
+        badge: 'ESCENA 6 / 7 • EXPLORADOR BIDIRECCIONAL MUNDIAL',
+        badgeColor: '#0288D1',
+        icon: '📁',
+        title: 'Accede a Todos tus Archivos desde Cualquier Parte del Mundo',
+        desc: 'Abre PDFs, fotos, vídeos y documentos o utiliza el Explorador de Archivos Bidireccional para subir, descargar, copiar y mover archivos entre el servidor y cualquier cliente Android o navegador Web.',
+        tags: ['Subida/Descarga Bidireccional', 'PDFs, Fotos, Vídeos y Docs', 'Reanudación Automática', 'App & Navegador Web']
+      },
+      {
+        badge: 'ESCENA 7 / 7 • PRIVACIDAD Y CIFRADO PUNTO A PUNTO',
+        badgeColor: '#00ACC1',
+        icon: '🔒',
+        title: 'Comparte con Familia y Amigos con Cifrado Punto a Punto',
+        desc: 'Tú decides qué carpetas o archivos ve cada usuario. Tus datos viajan encriptados punto a punto (DTLS) directamente entre tu servidor y tu pantalla, con soporte directo con el desarrollador incluido.',
+        tags: ['Cifrado P2P DTLS', 'Control Total de Usuarios', 'Permisos por Carpeta/Archivo', 'Soporte Directo']
+      }
+    ];
+
+    let currentSpotIdx = 0;
+    let spotPlaying = true;
+    let spotTimer = null;
+
+    function renderSpotScene(idx) {
+      currentSpotIdx = ((idx % SPOT_SCENES.length) + SPOT_SCENES.length) % SPOT_SCENES.length;
+      const sc = SPOT_SCENES[currentSpotIdx];
+      const badgeEl = document.getElementById('spot-scene-badge');
+      const iconEl = document.getElementById('spot-scene-icon');
+      const titleEl = document.getElementById('spot-scene-title');
+      const descEl = document.getElementById('spot-scene-desc');
+      const tagsEl = document.getElementById('spot-scene-tags');
+      if (!badgeEl) return;
+
+      badgeEl.textContent = sc.badge;
+      badgeEl.style.backgroundColor = sc.badgeColor;
+      iconEl.textContent = sc.icon;
+      titleEl.textContent = sc.title;
+      descEl.textContent = sc.desc;
+      tagsEl.innerHTML = sc.tags.map(t =>
+        '<span class="px-3 py-1 rounded-full bg-black/50 border border-white/20 text-xs font-extrabold text-[#00E5FF]">' + t + '</span>'
+      ).join('');
+
+      document.querySelectorAll('.spot-step-bar').forEach((bar, i) => {
+        if (i === currentSpotIdx) {
+          bar.className = 'spot-step-bar h-1.5 rounded-full bg-[#00E5FF] cursor-pointer border-0 transition-all';
+        } else if (i < currentSpotIdx) {
+          bar.className = 'spot-step-bar h-1.5 rounded-full bg-white/60 cursor-pointer border-0 transition-all';
+        } else {
+          bar.className = 'spot-step-bar h-1.5 rounded-full bg-white/20 cursor-pointer border-0 transition-all';
+        }
+      });
+    }
+
+    function restartSpotTimer() {
+      if (spotTimer) clearInterval(spotTimer);
+      if (spotPlaying) {
+        spotTimer = setInterval(() => renderSpotScene(currentSpotIdx + 1), 5500);
+      }
+    }
+
+    window.goToSpotScene = function(idx) {
+      renderSpotScene(idx);
+      restartSpotTimer();
+    };
+    window.shiftSpotScene = function(delta) {
+      renderSpotScene(currentSpotIdx + delta);
+      restartSpotTimer();
+    };
+    window.toggleEpicSpot = function() {
+      spotPlaying = !spotPlaying;
+      const icon = document.getElementById('spot-play-icon');
+      const txt = document.getElementById('spot-play-text');
+      if (icon && txt) {
+        icon.className = spotPlaying ? 'fa-solid fa-pause' : 'fa-solid fa-play';
+        txt.textContent = spotPlaying ? 'Pausar Spot' : 'Reproducir Spot';
+      }
+      restartSpotTimer();
+    };
+    window.startEpicSpot = function() {
+      spotPlaying = true;
+      renderSpotScene(0);
+      restartSpotTimer();
+    };
+
+    renderSpotScene(0);
+    restartSpotTimer();
+
+    // Si el propietario sube spot.mp4 al repositorio, activar reproductor de vídeo real automáticamente
+    const promoVideo = document.getElementById('promo-video');
+    const epicStage = document.getElementById('epic-spot-stage');
+    if (promoVideo && epicStage) {
+      promoVideo.addEventListener('loadedmetadata', function() {
+        if (spotTimer) clearInterval(spotTimer);
+        epicStage.classList.add('hidden');
+        promoVideo.classList.remove('hidden');
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // PUENTE WEBRTC P2P HTTPS (/HMR-XXXX-YYYY)
+    // -------------------------------------------------------------------------
     const MSG_REQ_META = 1;
     const MSG_REQ_BODY = 2;
     const MSG_REQ_END = 3;
@@ -265,7 +761,6 @@
       return null;
     }
 
-    // Formulario de la Landing Page
     const connectForm = document.getElementById('connect-code-form');
     if (connectForm) {
       connectForm.addEventListener('submit', function(e) {
@@ -279,23 +774,12 @@
       });
     }
 
-    // Comprobar si existe spot.mp4 para mostrar el reproductor automáticamente
-    const promoVideo = document.getElementById('promo-video');
-    const promoPlaceholder = document.getElementById('promo-placeholder');
-    if (promoVideo && promoPlaceholder) {
-      promoVideo.addEventListener('loadedmetadata', function() {
-        promoPlaceholder.classList.add('hidden');
-        promoVideo.classList.remove('hidden');
-      });
-    }
-
     const activeShareCode = extractShareCodeFromLocation();
     if (!activeShareCode) {
-      // Modo 1: Página pública de producto (indexable por Google)
       return;
     }
 
-    // Modo 2: Conexión privada a servidor HMR-XXXX-YYYY (NO indexable por buscadores)
+    if (spotTimer) clearInterval(spotTimer);
     const robotsMeta = document.getElementById('meta-robots');
     if (robotsMeta) robotsMeta.setAttribute('content', 'noindex, nofollow');
     document.title = 'Hemeroteca — Conectando a ' + activeShareCode;
@@ -338,8 +822,8 @@
       const out = new ArrayBuffer(9 + payload.byteLength);
       const view = new DataView(out);
       view.setUint8(0, type);
-      view.setInt32(1, streamId, false); // Big-Endian
-      view.setInt32(5, payload.byteLength, false); // Big-Endian
+      view.setInt32(1, streamId, false);
+      view.setInt32(5, payload.byteLength, false);
       if (payload.byteLength > 0) {
         new Uint8Array(out, 9).set(payload);
       }
@@ -357,7 +841,6 @@
       return { type, streamId, payload };
     }
 
-    // Estado del puente HTTP sobre DataChannel
     let activeDataChannel = null;
     let nextStreamId = 1;
     const pendingStreams = new Map();
@@ -445,7 +928,6 @@
       });
     }
 
-    // Escuchar peticiones interceptadas por sw.js
     navigator.serviceWorker.addEventListener('message', async (event) => {
       const msg = event.data || {};
       if (msg.type !== 'HMR_SW_FETCH') return;
@@ -462,7 +944,6 @@
       let curHeaders = msg.headers || [];
       let curBody = msg.bodyBuffer ? new Uint8Array(msg.bodyBuffer) : null;
 
-      // Seguir redirecciones internas (ej. POST /login -> 302 Location: /) conservando la cookie de sesión en virtualCookieJar
       for (let hop = 0; hop < 4; hop++) {
         const result = await executeSingleDataChannelRequest(curMethod, curPath, curHeaders, curBody);
         if (result.error) {
@@ -486,7 +967,6 @@
           continue;
         }
 
-        // Enviar respuesta final en streaming a sw.js
         replyPort.postMessage({
           type: 'META',
           statusCode: status,
@@ -510,7 +990,7 @@
           return;
         }
         setBridgeUiState('Preparando motor HTTPS P2P...', 'Activando Service Worker local en tu navegador.', false);
-        const reg = await navigator.serviceWorker.register('/sw.js', { scope: '/' });
+        await navigator.serviceWorker.register('/sw.js', { scope: '/' });
         await navigator.serviceWorker.ready;
 
         const randPart = (self.crypto && self.crypto.randomUUID)
